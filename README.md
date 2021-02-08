@@ -45,15 +45,6 @@ conda env create -f environment.yml
 
 ## 4. Run
 
-#### 입력 데이터에 따라
-
-* UnrealCV 
- **게임 바이너리를 실행시킨 상태**에서 코드를 실행해야 한다.
-
-* Image
-
-* WebCam
-
 #### Object detection
  * Panoptic Segmentation (+ bbox, accuracy)
 
