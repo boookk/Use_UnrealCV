@@ -1,6 +1,5 @@
 import numpy as np
 import cv2
-import os
 from unrealcv import client
 import sys
 import io
