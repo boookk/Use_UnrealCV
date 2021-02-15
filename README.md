@@ -1,4 +1,4 @@
-# Use detectron2
+# Use UnrealCV
 
  UnrealCV 가상 시뮬레이션 환경에서 **detectron2**를 이용한 object detection 진행한다.
 
