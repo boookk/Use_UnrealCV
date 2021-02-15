@@ -15,7 +15,7 @@ from detectron2.data import MetadataCatalog
 
 
 def play(path):
-    return subprocess.Popen(path, shell=True)
+    subprocess.Popen(path, shell=True)
 
 
 def setup_cfg():
@@ -40,7 +40,8 @@ def read_png(res):
 
 if __name__ == '__main__':
     # Start game binary
-    pro = play('./RealisticRendering_RL_3.10/RealisticRendering.sh')
+    path = '../RealisticRendering_RL_3.10/RealisticRendering.sh'
+    play(path)
 
     # Wait time to connect
     time.sleep(2)
@@ -83,3 +84,4 @@ if __name__ == '__main__':
             pass
 
     cv2.destroyAllWindows()
+    client.disconnect()
