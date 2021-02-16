@@ -1,5 +1,6 @@
 import numpy as np
 import cv2
+import psutil
 from unrealcv import client
 import sys
 import io
@@ -15,7 +16,7 @@ from detectron2.data import MetadataCatalog
 
 
 def play(path):
-    subprocess.Popen(path, shell=True)
+    return subprocess.Popen(path, shell=True)
 
 
 def setup_cfg():
@@ -39,13 +40,23 @@ def read_png(res):
     return np.asarray(img)
 
 
+def stop(pid):
+    for child in psutil.Process(pid).children(recursive=True):
+        child.kill()
+
+
 if __name__ == '__main__':
     # Start game binary
     path = '../RealisticRendering_RL_3.10/RealisticRendering.sh'
-    play(path)
+    WINDOWS_NAME = path.split('/')[-1].split('.')[0]
+    proc = play(path)
 
-    # Wait time to connect
-    time.sleep(2)
+    cfg = setup_cfg()
+
+    predictor = DefaultPredictor(cfg)
+
+    # get metadata
+    metadata = MetadataCatalog.get(cfg.DATASETS.TRAIN[0])
 
     # Connecting to a game binary
     client.connect()
@@ -54,13 +65,6 @@ if __name__ == '__main__':
     if not client.isconnected():
         print('UnrealCV server is not running.')
         sys.exit(-1)
-
-    cfg = setup_cfg()
-
-    predictor = DefaultPredictor(cfg)
-
-    # get metadata
-    metadata = MetadataCatalog.get(cfg.DATASETS.TRAIN[0])
 
     # 키보드 'Q'가 눌릴 때까지 게임 바이너리 화면을 가져와 지속적으로 화면 갱신
     while cv2.waitKey(1) != ord('q'):
@@ -86,3 +90,4 @@ if __name__ == '__main__':
 
     cv2.destroyAllWindows()
     client.disconnect()
+    stop(proc.pid)
