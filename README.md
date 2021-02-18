@@ -29,6 +29,9 @@ cd Use_UnrealCV
 ```
 conda env create -f environment.yml
 ```
+```
+conda activate urdr
+```
 
 
 
