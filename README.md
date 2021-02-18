@@ -1,4 +1,4 @@
-# Using UnrealCV in detectron2
+# Object detection using UnrealCV
 
  UnrealCV 가상 시뮬레이션 환경에서 **detectron2**를 이용한 object detection 진행한다.
 
@@ -47,7 +47,11 @@ sh virtual_env.sh
 ## 4. Run
 
 #### Object detection
- * Panoptic Segmentation (+ bbox, accuracy)
-
-
-Object detection using unrealcv
+ * Instance Segmentation (+ bbox, accuracy)
+ ```
+ python instance_Seg.py
+ ```
+ * Semantic Segmentation
+ ```
+ python semantic_Seg.py
+ ```
