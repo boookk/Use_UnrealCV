@@ -46,7 +46,7 @@ def stop(pid):
 
 if __name__ == '__main__':
     # Start game binary
-    path = '../RealisticRendering_RL_3.10/RealisticRendering.sh'
+    path = './RealisticRendering_RL_3.10/RealisticRendering.sh'
     WINDOWS_NAME = path.split('/')[-1].split('.')[0]
     proc = play(path)
 

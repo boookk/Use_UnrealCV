@@ -1,6 +1,6 @@
 # Object detection using UnrealCV
 
- UnrealCV 가상 시뮬레이션 환경에서 **detectron2**를 이용한 object detection 진행한다.
+ UnrealCV 가상 시뮬레이션 환경에서 **detectron2**를 이용한 object detection을 진행한다.
 
  [detectron2](https://github.com/facebookresearch/detectron2)는 Facebook AI Research에서 제공하는 객체 감지 알고리즘으로, pytorch deep learning framework에 의해 구동된다. 
   
@@ -24,6 +24,7 @@ git clone https://github.com/boookk/Use_UnrealCV.git
 
 ## 2. Create virtual environment
 ```
+cd Use_UnrealCV
 conda env create -f environment.yml
 ```
 
@@ -49,9 +50,9 @@ sh virtual_env.sh
 #### Object detection
  * Instance Segmentation (+ bbox, accuracy)
  ```
- python instance_Seg.py
+ python code/instance_Seg.py
  ```
  * Semantic Segmentation
  ```
- python semantic_Seg.py
+ python code/semantic_Seg.py
  ```
